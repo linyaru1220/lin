@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="lin">
+	<test name="demo1">
+		<classes>
+			<class name="com.source.code.testng.multiThread.MultiThreadOnXML">
+				<methods>
+					<include name="test1" />
+					<include name="test2" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<!-- 监听器记录结果到测试报告extentReport -->
+	<listeners>
+		<listener
+			class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter"/>
+	</listeners>
+</suite>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+classes级别：相同的class tag下的用例在同一个线程下执行
+tests级别：不同的test tag下的用例可以在不同的线程下执行，相同的test tag(xml里的test name)下的用例只能在同一个线程下执行 
+methods级别：所有用例都可以在不同的线程下去执行 
+thread-count：最大并发线程数 
+xml配置不能指定线程值，只有在方法上Test()中参数指定线程值
+ -->
+<suite name="thread" parallel="tests" thread-count="2">
+	<test name="demo">
+		<classes>
+			<class
+				name="com.source.code.testng.multiThread.MultiThreadOnXML" />
+		</classes>
+	</test>
+	<test name="demo1">
+	    <classes>
+	        <class name="com.source.code.testng.multiThread.MultiThreadOnAnnovation"/>
+	    </classes>
+	</test>
+</suite>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="suite">
+	<test name="runAll">
+		<classes>
+			<class name="com.source.code.testng.group.grouponclass.GroupsOnClass1"></class>
+			<class name="com.source.code.testng.group.grouponclass.GroupsOnClass2"></class>
+			<class name="com.source.code.testng.group.grouponclass.GroupsOnClass3"></class>
+		</classes>
+	</test>
+<!-- 	以下类中方法按组只运行stu -->
+	<test name="onlyRunStu">
+	    <groups>
+	        <run>
+	            <include name="stu"></include>
+	        </run>
+	    </groups>
+	    <classes>
+			<class name="com.source.code.testng.group.grouponclass.GroupsOnClass1"></class>
+			<class name="com.source.code.testng.group.grouponclass.GroupsOnClass2"></class>
+			<class name="com.source.code.testng.group.grouponclass.GroupsOnClass3"></class>
+		</classes>
+	</test>
+</suite>
