@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import org.apache.http.HttpResponse;
@@ -31,26 +30,25 @@ public class MyCookiesForGet {
 	private Properties properties;
 	// private InputStream fis =
 	// MyCookiesForGet.class.getClassLoader().getResourceAsStream("/application.properties");
-	private BufferedReader bufferedReader;
+//	private InputStream in;
 
 	@BeforeClass
 	public void getProperties() throws IOException {
 		// fis =
 		// MyCookiesForGet.class.getClassLoader().getResourceAsStream("application.properties");
-		bufferedReader = new BufferedReader(new FileReader("D:/eclipse-workspace/lin/src/main/resources/httpClient/application.properties"));
+		InputStream in = MyCookiesForGet.class.getClassLoader().getResourceAsStream("/conf/application.properties");
 		if (properties != null) {
 			try {
-				properties.load(bufferedReader);
+				properties.load(in);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				System.out.println("read properties error");
 				e.printStackTrace();
 			}
 			url = properties.getProperty("base_url") + properties.getProperty("httpClient/getCookies");
 			getUrl = properties.getProperty("base_url") + properties.getProperty("getWithCookies");
-			bufferedReader.close();
+			in.close();
 		} else {
-			System.out.println("read properties error");
+			throw new RuntimeException("read properties error");
 		}
 	}
 
